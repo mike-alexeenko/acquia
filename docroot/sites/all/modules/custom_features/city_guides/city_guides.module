@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the City guides feature.
+ */
+
+include_once 'city_guides.features.inc';
