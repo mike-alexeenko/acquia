@@ -1,6 +1,0 @@
-<?php
-
-// Add 'CLICK ME!' to every link.
-function batoverrides_preprocess_link(&$variables) {
-  $variables['text'] .= 'CLICK ME!';
-}
