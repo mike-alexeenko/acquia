@@ -211,9 +211,9 @@
  * @endcode
  */
 $databases = array (
-  'default' => 
+  'default' =>
   array (
-    'default' => 
+    'default' =>
     array (
       'database' => 'acquia_drupal',
       'username' => 'drupaluser',
@@ -570,7 +570,7 @@ $conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
 
 
 // On Acquia Cloud, this include file configures Drupal to use the correct
-// database in each site environment (Dev, Stage, or Prod). To use this 
+// database in each site environment (Dev, Stage, or Prod). To use this
 // settings.php for development on your local workstation, set $db_url
 // (Drupal 5 or 6) or $databases (Drupal 7) as described in comments above.
 if (file_exists('/var/www/site-php')) {
@@ -596,3 +596,7 @@ $databases = array('default' => array('default' => array(
     'host' => '127.0.0.1',
     'port' => 33066 )));
 //</@@ADCP_CONF@@>
+
+if (file_exists('/var/www/site-php')) {
+  require '/var/www/site-php/miketest/miketest-settings.inc';
+}
