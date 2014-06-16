@@ -1,0 +1,14 @@
+; $Id$
+
+name = Retromania
+description = Free drupal theme by http://topdrupalthemes.net and http://www.jayhafling.com/
+core = 7.x
+version = 1
+engine = phptemplate
+stylesheets[all][] = style.css
+
+regions[search_box] = Searchbox
+regions[nav] = Main Menu
+regions[right] = Right sidebar
+regions[content] = Content
+
