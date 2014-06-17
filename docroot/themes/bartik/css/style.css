@@ -695,7 +695,7 @@ ul.links {
 }
 .comment .submitted p {
   margin: 4px 0;
-  font-size: 20px;
+  font-size: 1.071em;
   line-height: 1.2;
 }
 .comment .submitted .comment-time {
@@ -884,7 +884,6 @@ ul.links {
 }
 #footer-columns p {
   margin-top: 1em;
-	color: wheat;
 }
 #footer-columns .content ul {
   list-style: none;
