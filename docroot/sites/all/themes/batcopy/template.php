@@ -154,3 +154,13 @@ function batcopy_field__taxonomy_term_reference($variables) {
 
   return $output;
 }
+
+/**
+ * Change search result ouput to accept Manage Display settings.
+ */
+function batcopy_preprocess_search_result(&$variables) {
+  $result = $variables['result'];
+  if (isset($result['node'])) {
+    $variables['snippet'] = $result['node']->rendered;
+  }
+}
