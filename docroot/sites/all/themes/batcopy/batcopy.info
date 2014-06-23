@@ -1,6 +1,6 @@
 
 name = BAT Copy
-description = A flexible, recolorable theme with many regions ttt.
+description = A flexible, recolorable theme with many regions.
 package = Core
 version = VERSION
 core = 7.x
