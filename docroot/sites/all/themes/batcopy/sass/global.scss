@@ -1,3 +1,10 @@
-div {
-	color:green;
+.view-id-books {
+  .field-content {
+    a.colorbox {
+      display: none;
+      &:first-child {
+        display: block;
+      }
+    }
+  }
 }

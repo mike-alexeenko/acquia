@@ -1,4 +1,8 @@
-/* line 1, ../sass/global.scss */
-div {
-  color: green;
+/* line 3, ../sass/global.scss */
+.view-id-books .field-content a.colorbox {
+  display: none;
+}
+/* line 5, ../sass/global.scss */
+.view-id-books .field-content a.colorbox:first-child {
+  display: block;
 }
