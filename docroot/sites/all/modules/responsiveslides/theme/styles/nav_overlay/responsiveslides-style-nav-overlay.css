@@ -1,0 +1,39 @@
+/**
+ * @file
+ * CSS styles for nav_overlay Responsiveslides style.
+ */
+.rs-style-nav_overlay .responsiveslides-controls {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 3em;
+}
+
+.rs-style-nav_overlay .responsiveslides-controls>ul {
+  position: relative;
+  top: 100%;
+  list-style: none;
+  text-align: center;
+  width: 100%;
+  z-index: 3;
+}
+
+.rs-style-nav_overlay .responsiveslides-controls>ul li {
+  display: inline-block;
+  padding: 5px;
+}
+
+.rs-style-nav_overlay .responsiveslides-controls .prev {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: 3;
+}
+
+.rs-style-nav_overlay .responsiveslides-controls .next {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  z-index: 3;
+}

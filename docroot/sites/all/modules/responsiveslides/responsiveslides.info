@@ -1,0 +1,13 @@
+name = ResponsiveSlides
+description = Slideshow formatter for Image fields, using the JQuery ResponsiveSlides.js plugin
+core = 7.x
+
+files[] = responsiveslides.views.inc
+files[] = views/responsiveslides_plugin_style_responsiveslides.inc
+
+; Information added by Drupal.org packaging script on 2014-03-21
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "responsiveslides"
+datestamp = "1395364159"
+

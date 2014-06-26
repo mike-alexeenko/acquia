@@ -1,0 +1,173 @@
+<?php
+
+/**
+ * @file
+ * Main file for responsiveslides.module.
+ */
+
+/**
+ * Implements hook_views_api().
+ */
+function responsiveslides_views_api() {
+  return array(
+    'api' => '3',
+  );
+}
+
+/**
+ * Implements hook_help().
+ */
+function responsiveslides_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#responsiveslides':
+      return '<p>Check out http://responsiveslides.com/ for more information about the ResponsiveSlides.js plugin.</p>';
+  }
+}
+
+/**
+ * Return Drupal FAPI formatted array of options for responsiveslides.js.
+ *
+ * @param array $defaults
+ *   Default values passed when editing existing instances.
+ *
+ * @return array $form
+ *   Drupal FAPI formatted array of options.
+ */
+function responsiveslides_option_list($defaults = array()) {
+  $form['auto'] = array(
+    '#type' => 'select',
+    '#title' => t('Automatic transitions'),
+    '#options' => array(FALSE => t('No'), TRUE => t('Yes')),
+    '#default_value' => isset($defaults['auto']) ? $defaults['auto'] : TRUE,
+  );
+  $form['speed'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Transition speed (milliseconds)'),
+    '#default_value' => isset($defaults['speed']) ? $defaults['speed'] : 500,
+  );
+  $form['timeout'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Transition timeout (milliseconds)'),
+    '#default_value' => isset($defaults['timeout']) ? $defaults['timeout'] : 4000,
+  );
+  $form['pager'] = array(
+    '#type' => 'select',
+    '#title' => t('Show pager'),
+    '#options' => array(FALSE => t('No'), TRUE => t('Yes')),
+    '#default_value' => isset($defaults['pager']) ? $defaults['pager'] : FALSE,
+  );
+  $form['nav'] = array(
+    '#type' => 'select',
+    '#title' => t('Show navigation'),
+    '#options' => array(FALSE => t('No'), TRUE => t('Yes')),
+    '#default_value' => isset($defaults['nav']) ? $defaults['nav'] : FALSE,
+  );
+  $form['random'] = array(
+    '#type' => 'select',
+    '#title' => t('Randomize slide order'),
+    '#options' => array(FALSE => t('No'), TRUE => t('Yes')),
+    '#default_value' => isset($defaults['random']) ? $defaults['random'] : FALSE,
+  );
+  $form['pause'] = array(
+    '#type' => 'select',
+    '#title' => t('Pause when hovering over slides'),
+    '#options' => array(FALSE => t('No'), TRUE => t('Yes')),
+    '#default_value' => isset($defaults['pause']) ? $defaults['pause'] : FALSE,
+  );
+  $form['pauseControls'] = array(
+    '#type' => 'select',
+    '#title' => t('Pause when hovering over controls'),
+    '#options' => array(FALSE => t('No'), TRUE => t('Yes')),
+    '#default_value' => isset($defaults['pauseControls']) ? $defaults['pauseControls'] : TRUE,
+  );
+  $form['prevText'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Text for previous button'),
+    '#default_value' => isset($defaults['prevText']) ? $defaults['prevText'] : 'Previous',
+  );
+  $form['nextText'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Text for next button'),
+    '#default_value' => isset($defaults['nextText']) ? $defaults['nextText'] : 'Next',
+  );
+  $form['maxwidth'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Max width of the slideshow (pixels).  Default is empty (no value)'),
+    '#default_value' => isset($defaults['maxwidth']) ? $defaults['maxwidth'] : '',
+  );
+  $form['navContainer'] = array(
+    '#type' => 'textfield',
+    '#title' => t('JS/CSS Selector where controls are appended.  Defaults is after the ul'),
+    '#default_value' => isset($defaults['navContainer']) ? $defaults['navContainer'] : '',
+  );
+  $form['manualControls'] = array(
+    '#type' => 'textfield',
+    '#title' => t('JS/CSS Selector for custom pager navigation.  Defaults is empty (no value)'),
+    '#default_value' => isset($defaults['manualControls']) ? $defaults['manualControls'] : '',
+  );
+  $form['before'] = array(
+    '#type' => 'textfield',
+    '#title' => t('JS function callback before transition'),
+    '#default_value' => isset($defaults['before']) ? $defaults['before'] : '',
+  );
+  $form['after'] = array(
+    '#type' => 'textfield',
+    '#title' => t('JS function callback after transition'),
+    '#default_value' => isset($defaults['after']) ? $defaults['after'] : '',
+  );
+
+  $styles = responsiveslides_styles();
+  foreach ($styles as $style => $values) {
+    $style_options[$style] = $values['name'];
+    $style_descriptions[$style] = $values['description'];
+  }
+  // @todo Allow a style to have a settings form for additional options?
+  $form['style'] = array(
+    '#type' => 'select',
+    '#title' => t('Style / Skin'),
+    '#options' => $style_options,
+    '#default_value' => isset($defaults['style']) ? $defaults['style'] : 'none',
+    '#description' => t("Choose an optional style that will give a better foundation if you don't want to start plain."),
+    '#style_descriptions' => $style_descriptions,
+  );
+
+  return $form;
+}
+
+/**
+ * Gather available styles for ResponsiveSlides.
+ *
+ * @return array
+ *   Array of available styles.
+ */
+function responsiveslides_styles() {
+  $data = &drupal_static(__FUNCTION__, array());
+  if (!isset($data['styles'])) {
+    $data['styles'] = module_invoke_all('responsiveslides_style_info');
+    drupal_alter('responsiveslides_styles', $data['styles']);
+  }
+
+  return $data['styles'];
+}
+
+/**
+ * Implements hook_responsiveslides_style_info().
+ */
+function responsiveslides_responsiveslides_style_info() {
+  $path = drupal_get_path('module', 'responsiveslides') . '/theme/styles';
+  $styles = array(
+    'none' => array(
+      'name' => t('None'),
+      'description' => t('No styling.'),
+    ),
+    'nav_overlay' => array(
+      'name' => t('Nav Overlay'),
+      'description' => t('Places the Prev/Next buttons over the slides on the far left/right.'),
+      'css_files' => array(
+        $path . '/nav_overlay/responsiveslides-style-nav-overlay.css',
+      ),
+    ),
+  );
+
+  return $styles;
+}
