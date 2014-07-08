@@ -37,3 +37,12 @@
     height: auto;
     width: 100%;
 }
+
+.field_price {
+  .field-item {
+    font-size: 1.7em;
+    sup {
+      text-decoration: underline;
+    }
+  }
+}
