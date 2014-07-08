@@ -64,18 +64,6 @@
  * @ingroup themeable
  */
 ?>
-<?php
-  //dpm($result);
- ?>
 <li class="<?php print $classes; ?>"<?php print $attributes; ?>>
-  <h3><?php print $result['node']->title; ?></h3>
-  <div class="author"><?php print $result['node']->name; ?></div>
-  <div class="text">
-    <?php
-      // Trim and display body value.
-      $body = $result['node']->body['und'][0]['value'];
-      $body_res = substr($body, 1, 40);
-      print($body_res).'...';
-    ?>
-  </div>
+__node
 </li>
