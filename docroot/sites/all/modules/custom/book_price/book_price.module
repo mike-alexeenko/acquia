@@ -1,0 +1,23 @@
+<?php
+/**
+ * @file
+ * Modifies price field output for Book content type.
+ */
+
+/**`
+ * Implements hook_preprocess_field().
+ */
+function book_price_preprocess_field(&$vars) {
+  if (isset($vars['element']['#field_name']) && $vars['element']['#field_name']
+    == 'field_price' && !empty($vars['items'][0]['#markup'])
+  ) {
+    $price_part1 = substr($vars['items'][0]['#markup'], 0, -2);
+    $price_part2 = substr($vars['items'][0]['#markup'],-2);
+    $vars['label_hidden'] = 1;
+    $vars['classes_array'] = array('field_price');
+    $vars['items'][0] = array(
+      '#markup'=>$price_part1.'.<sup>'.$price_part2.'</sup>'
+    );
+   //dpm($vars);
+  }
+}

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Pages views feature.
+ */
+
+include_once 'pages_views.features.inc';
