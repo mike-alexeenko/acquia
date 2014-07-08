@@ -1,0 +1,6 @@
+name = Book Price
+description = Formats output of the price field on Book content type node page
+package = Mike Development
+core = 7.x
+
+files[] = book_price.module
