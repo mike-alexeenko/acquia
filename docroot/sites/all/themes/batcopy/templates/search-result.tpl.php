@@ -64,21 +64,18 @@
  * @ingroup themeable
  */
 ?>
+<?php
+  //dpm($result);
+ ?>
 <li class="<?php print $classes; ?>"<?php print $attributes; ?>>
-  <?php /* print render($title_prefix); ?>
-  <h3 class="title"<?php print $title_attributes; ?>>
-    <a href="<?php print $url; ?>"><?php print $title; ?></a>
-  </h3>
-  <?php print render($title_suffix); */?>
-  <?php print $snippet; ?>
-  <?php /* ?>
-  <div class="search-snippet-info">
-    <?php if ($snippet): ?>
-      <p class="search-snippet"<?php print $content_attributes; ?>><?php print $snippet; ?></p>
-    <?php endif; ?>
-    <?php if ($info): ?>
-      <p class="search-info"><?php print $info; ?></p>
-    <?php endif; ?>
+  <h3><?php print $result['node']->title; ?></h3>
+  <div class="author"><?php print $result['node']->name; ?></div>
+  <div class="text">
+    <?php
+      // Trim and display body value.
+      $body = $result['node']->body['und'][0]['value'];
+      $body_res = substr($body, 1, 40);
+      print($body_res).'...';
+    ?>
   </div>
-  <?php */ ?>
 </li>
