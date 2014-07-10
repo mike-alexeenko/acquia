@@ -164,3 +164,22 @@ function batcopy_preprocess_search_result(&$variables) {
     $variables['snippet'] = $result['node']->rendered;
   }
 }
+
+/**
+ * Search form output alter.
+ */
+function batcopy_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'search_block_form') {
+    $form['search_block_form']['#default_value'] = t('Start typing here');
+    $form['actions']['submit'] = array('#type' => 'submit', '#value' => 'aa');
+    // Add extra attributes to the text box
+    $form['search_block_form']['#attributes']['onblur'] = "if (this.value == '') {this.value = 'Start typing here';}";
+    $form['search_block_form']['#attributes']['onfocus'] = "if (this.value == 'Start typing here') {this.value = '';}";
+    // Prevent user from searching the default text
+    $form['#attributes']['onsubmit'] = "if(this.search_block_form.value=='Search'){ alert('Please enter a search'); return false; }";
+    // Alternative (HTML5) placeholder attribute instead of using the javascript
+    $form['search_block_form']['#attributes']['placeholder'] = t('placeholder here');
+
+    dpm($form);
+  }
+}
