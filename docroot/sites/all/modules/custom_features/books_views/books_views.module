@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Books views feature.
+ */
+
+include_once 'books_views.features.inc';

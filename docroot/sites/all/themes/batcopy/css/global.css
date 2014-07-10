@@ -41,3 +41,12 @@
   height: auto;
   width: 100%;
 }
+
+/* line 42, ../sass/global.scss */
+.field_price .field-item {
+  font-size: 1.7em;
+}
+/* line 44, ../sass/global.scss */
+.field_price .field-item sup {
+  text-decoration: underline;
+}
