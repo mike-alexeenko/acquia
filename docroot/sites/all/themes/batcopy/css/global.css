@@ -4,7 +4,7 @@
 }
 /* line 5, ../sass/global.scss */
 .view-id-books .field-content a.colorbox:first-child {
-  display: block;
+  display: inline;
 }
 
 /* line 13, ../sass/global.scss */
