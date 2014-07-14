@@ -194,3 +194,12 @@ function batcopy_preprocess_views_view_fields(&$vars) {
     }
   }
 }
+
+/**
+ * Slides view result shuffle.
+ */
+function batcopy_views_pre_render(&$view) {
+  if ($view->name=='slides') {
+    shuffle($view->result);
+  }
+}
