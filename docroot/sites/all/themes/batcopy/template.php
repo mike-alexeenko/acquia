@@ -176,8 +176,21 @@ function batcopy_form_alter(&$form, &$form_state, $form_id) {
     $form['search_block_form']['#attributes']['onblur'] = "if (this.value == '') {this.value = 'Start typing here';}";
     $form['search_block_form']['#attributes']['onfocus'] = "if (this.value == 'Start typing here') {this.value = '';}";
     // Prevent user from searching the default text
-    $form['#attributes']['onsubmit'] = "if(this.search_block_form.value=='Search'){ alert('Please enter a search'); return false; }";
+    $form['#attributes']['onsubm  it'] = "if(this.search_block_form.value=='Search'){ alert('Please enter a search'); return false; }";
     // Alternative (HTML5) placeholder attribute instead of using the javascript
     $form['search_block_form']['#attributes']['placeholder'] = t('placeholder here');
+  }
+}
+
+/**
+ * Books page view field alter.
+ */
+function batcopy_preprocess_views_view_fields(&$vars) {
+  if ($vars['view']->name=='books') {
+    if (preg_match("/book-/", $vars['fields']['title']->content)) {
+      $vars['fields']['title']->wrapper_suffix='<em><sup>modified book</sup></em></div>';
+    } else {
+      $vars['fields']['title']->wrapper_suffix='<em><sup>sample book</sup></em></div>';
+    }
   }
 }
