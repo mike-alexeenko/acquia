@@ -188,9 +188,9 @@ function batcopy_form_alter(&$form, &$form_state, $form_id) {
 function batcopy_preprocess_views_view_fields(&$vars) {
   if ($vars['view']->name=='books') {
     if (preg_match("/book-/", $vars['fields']['title']->content)) {
-      $vars['fields']['title']->wrapper_suffix='<em><sup>modified book</sup></em></div>';
+      $vars['fields']['title']->wrapper_suffix='<em><sup>'.t("modified book").'</sup></em></div>';
     } else {
-      $vars['fields']['title']->wrapper_suffix='<em><sup>sample book</sup></em></div>';
+      $vars['fields']['title']->wrapper_suffix='<em><sup>'.t("sample book").'</sup></em></div>';
     }
   }
 }
