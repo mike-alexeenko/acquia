@@ -3,6 +3,7 @@ description = views for books content type
 core = 7.x
 package = Mike Development
 dependencies[] = entityreference
+dependencies[] = flexslider_views
 dependencies[] = views
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
