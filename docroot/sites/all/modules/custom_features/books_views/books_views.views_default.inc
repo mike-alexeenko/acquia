@@ -39,17 +39,6 @@ function books_views_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Field: Image */
-  $handler->display->display_options['fields']['field_featured_image']['id'] = 'field_featured_image';
-  $handler->display->display_options['fields']['field_featured_image']['table'] = 'field_data_field_featured_image';
-  $handler->display->display_options['fields']['field_featured_image']['field'] = 'field_featured_image';
-  $handler->display->display_options['fields']['field_featured_image']['label'] = '';
-  $handler->display->display_options['fields']['field_featured_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_featured_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_featured_image']['settings'] = array(
-    'image_style' => 'thumbnail',
-    'image_link' => '',
-  );
   /* Sort criterion: Content: Updated date */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
@@ -180,7 +169,7 @@ function books_views_views_default_views() {
 
   /* Display: Attachment */
   $handler = $view->new_display('attachment', 'Attachment', 'attachment_1');
-  $handler->display->display_options['display_description'] = 'flex slider display';
+  $handler->display->display_options['display_description'] = 'FlexSlider display';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '12';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -302,6 +291,24 @@ function books_views_views_default_views() {
   $handler->display->display_options['filters']['field_reference_availability_value']['value'] = array(
     1 => '1',
   );
+
+  /* Display: Books block */
+  $handler = $view->new_display('block', 'Books block', 'block_1');
+  $handler->display->display_options['display_description'] = 'sorted in alphabetical order';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'mini';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['sorts']['title']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['title']['expose']['label'] = 'Title';
   $export['books'] = $view;
 
   return $export;
