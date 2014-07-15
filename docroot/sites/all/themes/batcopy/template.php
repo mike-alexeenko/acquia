@@ -196,10 +196,11 @@ function batcopy_preprocess_views_view_fields(&$vars) {
 }
 
 /**
- * Slides view result shuffle.
+ * Slides view result shuffle; connect css file.
  */
 function batcopy_views_pre_render(&$view) {
   if ($view->name=='slides') {
     shuffle($view->result);
+    drupal_add_css(path_to_theme().'/css/slides.css', array('group'=>CSS_THEME, 'weight'=>-10));
   }
 }
