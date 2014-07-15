@@ -50,3 +50,12 @@
 .field_price .field-item sup {
   text-decoration: underline;
 }
+
+/* line 51, ../sass/global.scss */
+.ui-accordion .ui-accordion-content {
+  transition: all .5s;
+}
+/* line 53, ../sass/global.scss */
+.ui-accordion .ui-accordion-content.ui-accordion-content-active {
+  height: auto !important;
+}

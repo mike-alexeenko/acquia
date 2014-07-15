@@ -11,31 +11,31 @@
 
 // Slider
 #page .rslides {
-    list-style: none outside none;
-    margin: 0;
-    overflow: hidden;
-    padding: 0;
-    position: relative;
-    width: 100%;
+  list-style: none outside none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 100%;
 }
 #page .rslides li {
-    display: none;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
+  display: none;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 #page .rslides li:first-child {
-    display: block;
-    float: left;
-    position: relative;
+  display: block;
+  float: left;
+  position: relative;
 }
 #page .rslides img {
-    border: 0 none;
-    display: block;
-    float: left;
-    height: auto;
-    width: 100%;
+  border: 0 none;
+  display: block;
+  float: left;
+  height: auto;
+  width: 100%;
 }
 
 .field_price {
@@ -46,3 +46,12 @@
     }
   }
 }
+
+// Quicktabs system overrides
+.ui-accordion .ui-accordion-content {
+  transition: all .5s;
+  &.ui-accordion-content-active {
+    height: auto !important;
+  }
+}
+

@@ -529,10 +529,6 @@ h1#site-name {
 /* ----------------- Featured ----------------- */
 
 #featured {
-  text-align: center;
-  font-size: 1.643em;
-  font-weight: normal;
-  line-height: 1.4;
   padding: 20px 0 45px;
   margin: 0;
   background: #f0f0f0;
