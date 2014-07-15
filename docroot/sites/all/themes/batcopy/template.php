@@ -186,7 +186,8 @@ function batcopy_form_alter(&$form, &$form_state, $form_id) {
  * Books page view field alter.
  */
 function batcopy_preprocess_views_view_fields(&$vars) {
-  if ($vars['view']->name=='books') {
+  if ($vars['view']->name=='books' && $vars['view']->current_display=='page_1') {
+    //dpm($vars);
     if (preg_match("/book-/", $vars['fields']['title']->content)) {
       $vars['fields']['title']->wrapper_suffix='<em><sup>'.t("modified book").'</sup></em></div>';
     } else {
