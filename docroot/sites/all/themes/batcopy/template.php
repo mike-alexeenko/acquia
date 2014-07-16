@@ -2,6 +2,7 @@
 
 /**
  * Add body classes if certain regions have content.
+ * @param $variables
  */
 function batcopy_preprocess_html(&$variables) {
   if (!empty($variables['page']['featured'])) {
@@ -18,7 +19,9 @@ function batcopy_preprocess_html(&$variables) {
     || !empty($variables['page']['footer_secondcolumn'])
     || !empty($variables['page']['footer_thirdcolumn'])
     || !empty($variables['page']['footer_fourthcolumn'])) {
-    $variables['classes_array'][] = 'footer-columns';
+    if (!empty($variables)) {
+      $variables['classes_array'][] = 'footer-columns';
+    }
   }
 
   // Add conditional stylesheets for IE
@@ -203,5 +206,14 @@ function batcopy_views_pre_render(&$view) {
   if ($view->name=='slides') {
     shuffle($view->result);
     drupal_add_css(path_to_theme().'/css/slides.css', array('group'=>CSS_THEME, 'weight'=>-10));
+  }
+}
+
+/**
+ * Switch home page template to page--home.tpl.php
+ */
+function batcopy_preprocess_page(&$vars) {
+  if ($vars['is_front']=='true') {
+    $vars['theme_hook_suggestions'][1] = 'page__home';
   }
 }
