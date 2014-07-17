@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Panelizer feature feature.
+ */
+
+include_once 'panelizer_feature.features.inc';
