@@ -16,7 +16,9 @@ function rules_feature_default_rules_configuration() {
       "TAGS" : [ "general" ],
       "REQUIRES" : [ "rules" ],
       "ON" : { "node_view--webform" : { "bundle" : "webform" } },
-      "DO" : [ { "drupal_message" : { "message" : "rule01" } } ]
+      "DO" : [
+        { "drupal_message" : { "message" : "Webform content type is present on this page" } }
+      ]
     }
   }');
   return $items;
