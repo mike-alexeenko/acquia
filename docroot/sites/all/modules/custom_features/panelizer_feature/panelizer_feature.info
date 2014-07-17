@@ -1,6 +1,6 @@
 name = Panelizer feature
 core = 7.x
-package = Features
+package = Mike Development
 dependencies[] = ctools
 dependencies[] = panelizer
 features[ctools][] = panelizer:panelizer:1
