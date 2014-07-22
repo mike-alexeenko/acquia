@@ -68,7 +68,9 @@
   //dpm($result);
  ?>
 <li class="<?php print $classes; ?>"<?php print $attributes; ?>>
-  <h3><?php print $result['node']->title; ?></h3>
+  <h3 class="title"<?php print $title_attributes; ?>>
+    <a href="<?php print $url; ?>"><?php print $title; ?></a>
+  </h3>
   <div class="author"><?php print $result['node']->name; ?></div>
   <div class="text">
     <?php
@@ -76,6 +78,9 @@
       $body = $result['node']->body['und'][0]['value'];
       $body_res = substr($body, 1, 40);
       print($body_res).'...';
+
+      // Show data configured in Manage Display->Search result
+      // print($result['node']->rendered);
     ?>
   </div>
 </li>
