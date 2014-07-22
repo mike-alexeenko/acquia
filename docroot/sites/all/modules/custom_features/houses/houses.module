@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Houses feature.
+ */
+
+include_once 'houses.features.inc';
