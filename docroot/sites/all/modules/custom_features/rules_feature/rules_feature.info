@@ -1,7 +1,7 @@
 name = Rules feature
 description = contains all rules
 core = 7.x
-package = Development Mike
+package = Mike Development
 dependencies[] = entity
 dependencies[] = rules
 features[features_api][] = api:2
