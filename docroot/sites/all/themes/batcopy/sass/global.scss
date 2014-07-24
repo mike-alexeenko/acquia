@@ -3,7 +3,7 @@
     a.colorbox {
       display: none;
       &:first-child {
-        display: block;
+        display: inline;
       }
     }
   }
@@ -37,6 +37,12 @@
     height: auto;
     width: 100%;
 }
-div{
-  background: red;
+
+.field_price {
+  .field-item {
+    font-size: 1.7em;
+    sup {
+      text-decoration: underline;
+    }
+  }
 }

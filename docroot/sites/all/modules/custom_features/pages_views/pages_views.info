@@ -1,0 +1,10 @@
+name = Pages views
+description = views for pages content type
+core = 7.x
+package = Mike Development
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = pages_content_type
+features_exclude[dependencies][ctools] = ctools
+project path = sites/all/modules/custom_features

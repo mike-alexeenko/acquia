@@ -1,0 +1,12 @@
+name = Context
+description = all context cases (test1, test2)
+core = 7.x
+package = Mike Development
+dependencies[] = block
+dependencies[] = ctools
+features[context][] = test1
+features[context][] = test2
+features[ctools][] = context:context:3
+features[features_api][] = api:2
+features_exclude[dependencies][context] = context
+project path = sites/all/modules/custom_features
