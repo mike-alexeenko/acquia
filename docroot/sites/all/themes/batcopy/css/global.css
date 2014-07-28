@@ -272,4 +272,5 @@ img {
 /* line 239, ../sass/global.scss */
 .page-property .views-exposed-form .views-exposed-widget select {
   width: 100%;
+  outline: 1px solid red;
 }
