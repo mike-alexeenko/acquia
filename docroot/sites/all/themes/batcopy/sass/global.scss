@@ -46,7 +46,11 @@
     }
   }
 }
-
 div {
   background: green;
+  outline: none;
+  display: block;
+  position: static;
+  color:inherit;
 }
+
