@@ -3,7 +3,7 @@
     a.colorbox {
       display: none;
       &:first-child {
-        display: block;
+        display: inline;
       }
     }
   }
@@ -53,4 +53,3 @@ div {
   position: static;
   color:inherit;
 }
-
