@@ -7,7 +7,6 @@ function mobile_redirect() {
       || navigator.userAgent.match(/BlackBerry/i)
       || navigator.userAgent.match(/Windows Phone/i)
   ){
-    //console.log('mobile');
     window.location = "http://adobe.com/";
   }
   else {
