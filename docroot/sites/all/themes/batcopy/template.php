@@ -2,6 +2,7 @@
 
 /**
  * Add body classes if certain regions have content.
+ * @param $variables
  */
 function batcopy_preprocess_html(&$variables) {
   if (!empty($variables['page']['featured'])) {
@@ -18,12 +19,17 @@ function batcopy_preprocess_html(&$variables) {
     || !empty($variables['page']['footer_secondcolumn'])
     || !empty($variables['page']['footer_thirdcolumn'])
     || !empty($variables['page']['footer_fourthcolumn'])) {
-    $variables['classes_array'][] = 'footer-columns';
+    if (!empty($variables)) {
+      $variables['classes_array'][] = 'footer-columns';
+    }
   }
 
   // Add conditional stylesheets for IE
   drupal_add_css(path_to_theme() . '/css/ie.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'lte IE 7', '!IE' => FALSE), 'preprocess' => FALSE));
   drupal_add_css(path_to_theme() . '/css/ie6.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'IE 6', '!IE' => FALSE), 'preprocess' => FALSE));
+
+  // Add js for mobile redirect
+  //drupal_add_js(path_to_theme() . '/js/mobile_redirect.js');
 }
 
 /**
@@ -176,8 +182,41 @@ function batcopy_form_alter(&$form, &$form_state, $form_id) {
     $form['search_block_form']['#attributes']['onblur'] = "if (this.value == '') {this.value = 'Start typing here';}";
     $form['search_block_form']['#attributes']['onfocus'] = "if (this.value == 'Start typing here') {this.value = '';}";
     // Prevent user from searching the default text
-    $form['#attributes']['onsubmit'] = "if(this.search_block_form.value=='Search'){ alert('Please enter a search'); return false; }";
+    $form['#attributes']['onsubm  it'] = "if(this.search_block_form.value=='Search'){ alert('Please enter a search'); return false; }";
     // Alternative (HTML5) placeholder attribute instead of using the javascript
     $form['search_block_form']['#attributes']['placeholder'] = t('placeholder here');
   }
 }
+
+/**
+ * Books page view field alter.
+ */
+function batcopy_preprocess_views_view_fields(&$vars) {
+  if ($vars['view']->name=='books' && $vars['view']->current_display=='page_1') {
+    if (preg_match("/book-/", $vars['fields']['title']->content)) {
+      $vars['fields']['title']->wrapper_suffix='<em><sup>'.t("modified book").'</sup></em></div>';
+    } else {
+      $vars['fields']['title']->wrapper_suffix='<em><sup>'.t("sample book").'</sup></em></div>';
+    }
+  }
+}
+
+/**
+ * Slides view result shuffle; connect css file.
+ */
+function batcopy_views_pre_render(&$view) {
+  if ($view->name=='slides') {
+    shuffle($view->result);
+    drupal_add_css(path_to_theme().'/css/slides.css', array('group'=>CSS_THEME, 'weight'=>-10));
+  }
+}
+
+/**
+ * Switch home page template to page--home.tpl.php
+ */
+function batcopy_preprocess_page(&$vars) {
+  if ($vars['is_front']=='true') {
+    $vars['theme_hook_suggestions'][1] = 'page__home';
+  }
+}
+?>

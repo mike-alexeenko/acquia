@@ -7,6 +7,9 @@
  * But these names are quite rare to cause collisions.
  */
 
+// Include the helper file.
+module_load_include('inc', 'simplehtmldom', 'helper');
+
 if (!function_exists('str_get_html')) {
   $simplehtmldom_library_path = _simplhtmldom_get_library_path();
   if (!empty($simplehtmldom_library_path)) {
@@ -17,45 +20,6 @@ else {
   drupal_set_message(t('The simplehtmldom API module found that you define its functions before it does itself! Somewhere in your drupal files there must be a copy of the PHP Simple HTML DOM Parser library that you do not need if you use this module. Please remove the old library or move it to sites/all/libraries/simplehtmldom folder.'), 'error');
 }
 
-/**
- * Returns path of simplhtmldom library.
- *
- * @return bool|string
- *   Path to library.
- */
-function _simplhtmldom_get_library_path() {
-
-  // Implement simple cache.
-  $library_path = &drupal_static(__FUNCTION__);
-  if (!empty($library_path)) {
-    return $library_path;
-  }
-
-  $file = 'simple_html_dom.php';
-  $library = 'simplehtmldom';
-  // Support libraries module.
-  if (module_exists('libraries') && function_exists('libraries_get_path')) {
-    $path = libraries_get_path($library) . "/$file";
-    if (file_exists($path)) {
-      return $path;
-    }
-  }
-  else {
-    $paths = array(
-      'sites/all/libraries/' . $library,
-      drupal_get_path('module', 'simplehtmldom') . '/' . $library,
-      drupal_get_path('module', 'simplehtmldom') . "/libraries",
-      'profiles/' . variable_get('install_profile', 'default') . '/libraries/' . $library,
-    );
-    foreach ($paths as $library_path) {
-      $path = $library_path . "/$file";
-      if (file_exists($path)) {
-        return $path;
-      }
-    }
-  }
-  return FALSE;
-}
 
 /**
  * Implements hook_libraries_info().

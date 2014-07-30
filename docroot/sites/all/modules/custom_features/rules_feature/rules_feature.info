@@ -1,0 +1,9 @@
+name = Rules feature
+description = contains all rules
+core = 7.x
+package = Mike Development
+dependencies[] = entity
+dependencies[] = rules
+features[features_api][] = api:2
+features[rules_config][] = rules_rule01
+project path = sites/all/modules/custom_features

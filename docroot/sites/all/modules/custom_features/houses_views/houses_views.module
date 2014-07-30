@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Houses views feature.
+ */
+
+include_once 'houses_views.features.inc';

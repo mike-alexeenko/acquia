@@ -1,0 +1,11 @@
+name = Taxonomy categories
+core = 7.x
+package = Mike Development
+dependencies[] = books
+dependencies[] = features
+dependencies[] = image
+dependencies[] = taxonomy
+features[features_api][] = api:2
+features[field_instance][] = taxonomy_term-panopoly_categories-field_featured_image
+features[taxonomy][] = panopoly_categories
+project path = sites/all/modules/custom_features

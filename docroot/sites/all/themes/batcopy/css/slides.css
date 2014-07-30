@@ -1,0 +1,6 @@
+/* line 3, ../sass/slides.scss */
+.rs-style-nav_overlay .responsiveslides-controls a {
+  background: orange;
+  color: #fff;
+  padding: 10px;
+}

@@ -1,0 +1,12 @@
+name = Quicktabs feature
+description = all quicktabs instances
+core = 7.x
+package = Mike Development
+dependencies[] = ctools
+dependencies[] = quicktabs
+features[ctools][] = quicktabs:quicktabs:1
+features[features_api][] = api:2
+features[quicktabs][] = accordion
+features[quicktabs][] = quicktabs01
+features[quicktabs][] = ui_tabs
+project path = sites/all/modules/custom_features

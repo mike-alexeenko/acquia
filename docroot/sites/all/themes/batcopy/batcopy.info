@@ -11,6 +11,9 @@ stylesheets[all][] = css/colors.css
 stylesheets[all][] = css/global.css
 stylesheets[print][] = css/print.css
 
+scripts[] = js/init.js
+scripts[] = js/mobile_redirect.js
+
 regions[header] = Header
 regions[help] = Help
 regions[page_top] = Page top

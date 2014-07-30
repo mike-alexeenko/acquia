@@ -19,7 +19,7 @@
 User-agent: *
 Crawl-delay: 10
 # Directories
-Disallow: /includes/
+Disallow: /icnludes/
 Disallow: /misc/
 Disallow: /modules/
 Disallow: /profiles/
@@ -48,6 +48,8 @@ Disallow: /user/register/
 Disallow: /user/password/
 Disallow: /user/login/
 Disallow: /user/logout/
+Disallow: /webform-view
+
 # Paths (no clean URLs)
 Disallow: /?q=admin/
 Disallow: /?q=comment/reply/
@@ -58,3 +60,4 @@ Disallow: /?q=user/password/
 Disallow: /?q=user/register/
 Disallow: /?q=user/login/
 Disallow: /?q=user/logout/
+Disallow: /?q=webform-view
