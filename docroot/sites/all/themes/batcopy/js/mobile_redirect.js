@@ -1,4 +1,4 @@
-function mobile_redirect() {
+(function(){
   if( navigator.userAgent.match(/Android/i)
       || navigator.userAgent.match(/webOS/i)
       || navigator.userAgent.match(/iPhone/i)
@@ -13,5 +13,6 @@ function mobile_redirect() {
   else {
     console.log('not mobile');
   }
-}
-mobile_redirect();
+})();
+
+
