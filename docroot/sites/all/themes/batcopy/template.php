@@ -175,6 +175,12 @@ function batcopy_preprocess_search_result(&$variables) {
  * Search form output alter.
  */
 function batcopy_form_alter(&$form, &$form_state, $form_id) {
+  // add js for the particular webform node
+  if ($form_id == 'webform_client_form_80') {
+    $form['#attached']['js'] = array(
+      drupal_get_path('module', 'webform') . '/js/form.js',
+    );
+  }
   if ($form_id == 'search_block_form') {
     $form['search_block_form']['#default_value'] = t('Start typing here');
     $form['actions']['submit'] = array('#type' => 'submit', '#value' => 'aa');
@@ -217,6 +223,10 @@ function batcopy_views_pre_render(&$view) {
 function batcopy_preprocess_page(&$vars) {
   if ($vars['is_front']=='true') {
     $vars['theme_hook_suggestions'][1] = 'page__home';
+  }
+  if (arg(0)=='property') {
+    drupal_add_js(drupal_get_path('theme', 'batcopy') . '/js/property.js');
+    $vars['scripts'] = drupal_get_js();
   }
 }
 ?>
