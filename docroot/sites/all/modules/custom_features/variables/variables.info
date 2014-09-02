@@ -1,0 +1,12 @@
+name = Variables
+description = core variables
+core = 7.x
+package = Mike Development
+dependencies[] = fe_variable
+features[fe_variable_core][] = admin_theme
+features[fe_variable_core][] = annotate_deletion
+features[fe_variable_core][] = annotate_limit_per_node
+features[fe_variable_core][] = annotate_node_types
+features[fe_variable_core][] = theme_default
+features[features_api][] = api:2
+project path = sites/all/modules/custom_features
