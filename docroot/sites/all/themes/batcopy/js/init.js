@@ -4,7 +4,7 @@
       rel:'gal'
     });
 
-    // count view visibility toggle
+    // Count view visibility toggle.
     $('.views-info-toggle').on('mouseenter', function(){
       $(this).next().addClass('act');
     })
@@ -18,6 +18,10 @@
     })
     $('.detailed-info-toggle').on('mouseleave', function(){
       $(this).next().removeClass('act');
+    })
+
+    $('.form-submit').on('click', function(){
+      alert('button with\n #'+$(this).attr('id')+'\n is clicked');
     })
   })
 })(jQuery);

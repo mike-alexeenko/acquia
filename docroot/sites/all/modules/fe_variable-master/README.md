@@ -14,3 +14,4 @@ Why not use Strongarm?
 ------------------
 
 We experienced quite a few problems with Strongarm, especially when combined with i18n. Strongarm is way more powerful and tries to be much smarter than this module in that it creates strongarm variables to override core variables. This module just lets you export and import variables.
+

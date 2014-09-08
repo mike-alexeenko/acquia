@@ -1,0 +1,7 @@
+name = DB test
+description = Creates new table in the database
+package = Mike Development
+core = 7.x
+
+files[] = db_test.module
+files[] = db_test.install

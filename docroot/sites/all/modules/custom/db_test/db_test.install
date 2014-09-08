@@ -1,0 +1,34 @@
+<?php
+/**
+ * Implements hook_schema().
+ */
+function db_test_schema() {
+  $schema['table_test'] = array(
+    'description' => 'Sets up access permissions for blocks based on user roles',
+    'fields'      => array(
+      'module' => array(
+        'type'        => 'varchar',
+        'length'      => 64,
+        'not null'    => TRUE,
+        'description' => "The block's origin module, from {block}.module.",
+      ),
+      'delta'  => array(
+        'type'        => 'varchar',
+        'length'      => 32,
+        'not null'    => TRUE,
+        'description' => "The block's unique delta within module, from {block}.delta.",
+      ),
+      'rid'    => array(
+        'type'        => 'int',
+        'unsigned'    => TRUE,
+        'not null'    => TRUE,
+        'description' => "The user's role ID from {users_roles}.rid.",
+      ),
+    ),
+    'primary key' => array('module', 'delta', 'rid'),
+    'indexes'     => array(
+      'rid' => array('rid'),
+    ),
+  );
+  return $schema;
+}

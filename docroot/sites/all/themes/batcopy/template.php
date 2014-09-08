@@ -29,7 +29,7 @@ function batcopy_preprocess_html(&$variables) {
   drupal_add_css(path_to_theme() . '/css/ie6.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'IE 6', '!IE' => FALSE), 'preprocess' => FALSE));
 
   // Add js for mobile redirect
-  drupal_add_js(path_to_theme() . '/js/mobile_redirect.js');
+  //drupal_add_js(path_to_theme() . '/js/mobile_redirect.js');
 }
 
 /**

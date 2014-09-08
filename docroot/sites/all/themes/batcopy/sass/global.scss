@@ -1,14 +1,3 @@
-@import "compass";
-@import "variables";
-
-/* --------------------------------------------------------------------------------------------------------------------------
-//                                Common Elements
----------------------------------------------------------------------------------------------------------------------------- */
-img {
-  max-width: 100%;
-}
-
-
 .view-id-books {
   .field-content {
     a.colorbox {
@@ -19,55 +8,34 @@ img {
     }
   }
 }
-/* --------------------------------------------------------------------------------------------------------------------------
-//                                Layout Elements
----------------------------------------------------------------------------------------------------------------------------- */
 
-#header div.section, #featured div.section, #messages div.section, #main, #triptych, #footer-columns, #footer {
-  @media all and (max-width: $tablet-mobile) {
-    width: 760px;
-  }
-  @media all and (max-width: $mobile) {
-    width: 100%;
-    max-width: 100%
-  }
-}
-.panels-flexible-2_columns .panels-flexible-region {
-  @media all and (max-width: $mobile) {
-    width: 100%;
-    float: none;
-    padding: 0;
-  }
-}
-/* --------------------------------------------------------------------------------------------------------------------------
-//                                Slider Home Page -> ResponsiveSlides Module
----------------------------------------------------------------------------------------------------------------------------- */
+// Slider
 #page .rslides {
-  list-style: none outside none;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  position: relative;
-  width: 100%;
+    list-style: none outside none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
 }
 #page .rslides li {
-  display: none;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 #page .rslides li:first-child {
-  display: block;
-  float: left;
-  position: relative;
+    display: block;
+    float: left;
+    position: relative;
 }
 #page .rslides img {
-  border: 0 none;
-  display: block;
-  float: left;
-  height: auto;
-  width: 100%;
+    border: 0 none;
+    display: block;
+    float: left;
+    height: auto;
+    width: 100%;
 }
 
 .field_price {
@@ -78,169 +46,3 @@ img {
     }
   }
 }
-
-// Quicktabs system overrides
-.ui-ui .accordion-accordion-content {
-  transition: all .5s;
-  &.ui-accordion-content-active {
-    height: auto !important;
-  }
-}
-
-/* --------------------------------------------------------------------------------------------------------------------------
-//                                Properties Listing Page
----------------------------------------------------------------------------------------------------------------------------- */
-.page-property {
-  .view-properties {
-    margin-left: -10px;
-    @media all and (max-width: $mobile) {
-      margin-left: 0;
-    }
-    .views-row {
-      background: #f9f9f9;
-      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-      box-sizing: border-box;
-      float: left;
-      margin-left: 10px;
-      margin-bottom: 10px;
-      padding-bottom: 10px;
-      position: relative;
-      overflow: hidden;
-      transition:all 0.3s ease 0s;
-      width: 221px;
-      @media all and (max-width: $tablet-mobile) {
-        width: 171px;
-      }
-      @media all and (max-width: $mobile) {
-        width: 30%;
-        margin-left: 0;
-        margin-right: 3%;
-        margin-bottom: 3%;
-      }
-      >[class$="title"] {
-        a {
-          @include background-image(linear-gradient(#0779bf 0%, #48a9e4 100%));
-          color: #fff;
-          display: block;
-          text-align: center;
-          text-transform: uppercase;
-          padding: 10px 0;
-          text-shadow: 0 -1px 1px #333;
-          &:hover {
-            @include background-image(linear-gradient(darken(#0779bf, 10%) 0%, darken(#48a9e4, 12%)  100%));
-          }
-        }
-      }
-      >[class$="price"] {
-        font-weight: bold;
-        padding: 10px;
-        color: #1483c7;
-      }
-      >[class$="country"] {
-        padding: 0 10px;
-      }
-      >[class$="photos"] {
-        position: relative;
-        overflow: hidden;
-        a {
-          display: block;
-          width: 100%;
-          line-height: 0;
-          transition: all 0.3s ease 0s;
-          +a {
-            left: 100%;
-            position: absolute;
-            top: 0;
-          }
-        }
-        img {
-          width: 100%;
-          height: 220px;
-          @media all and (max-width: $tablet-mobile) {
-            height: 171px;
-          }
-        }
-        &:hover {
-          .field-content {
-            a:first-child {
-              +a {
-                left: 0;
-              }
-            }
-          }
-        }
-      }
-      >[class$="daycount"] {
-        font-size: 82%;
-        padding: 0 10px 0 0;
-        text-align: right;
-        text-transform: lowercase;
-        position: relative;
-        .views-info-toggle {
-          cursor: pointer;
-          &:hover {
-            color: #000;
-          }
-        }
-        .views-info {
-          background: none repeat scroll 0 0 #fff;
-          border: 1px solid #eee;
-          left: -100%;
-          padding: 10px;
-          position: absolute;
-          top: 0;
-          transition: all 0.3s ease 0s;
-          &.act {
-            left: 0;
-          }
-        }
-      }
-       >[class$="area"] {
-        padding: 5px 10px 0 0;
-        text-align: right;
-       .detailed-info-toggle {
-          cursor: pointer;
-          font-size: 82%;
-          &:hover {
-            color: #000;
-          }
-        }
-        .detailed-info {
-          background: none repeat scroll 0 0 #fff;
-          border: 1px solid #eee;
-          left: 0;
-          padding: 10px;
-          position: absolute;
-          top: -100%;
-          transition: all 0.3s ease 0s;
-          width: 100%;
-          box-sizing:border-box;
-          color: #1483c7;
-          &.act {
-            top: 0;
-          }
-        }
-      }
-      // views-row hover
-      &:hover {
-        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        background: #f7f7f7;
-      }
-    }
-  }
-
-  // Views exposed widgets
-  .views-exposed-form .views-exposed-widget {
-    float: none;
-    padding: 0 0 0 1em;
-    @media all and (max-width: $mobile) {
-      padding: 0;
-    }
-    select {
-      width: 100%;
-      outline: 1px solid purple;
-    }
-  }
-
-}
-
